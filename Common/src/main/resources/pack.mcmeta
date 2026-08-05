@@ -1,0 +1,21 @@
+{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 79b2a8a (initial commit)
+    "pack": {
+        "description": "${mod_name}",
+        "pack_format": 15
+    }
+<<<<<<< HEAD
+}
+=======
+}
+=======
+  "pack": {
+    "pack_format": ${resource_pack_format},
+    "description": "${mod_name} resources"
+  }
+}
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)

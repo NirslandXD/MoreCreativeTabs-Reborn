@@ -1,0 +1,29 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            url "https://mcentral.firstdark.dev/releases"
+        }
+        maven {
+            url "https://maven.firstdark.dev/releases"
+        }
+        maven {
+            url "https://maven.firstdark.dev/snapshots"
+        }
+    }
+}
+
+rootProject.name = 'MoreCreativeTabsReborn'
+<<<<<<< HEAD
+include("Common", "Fabric", "Forge")
+=======
+<<<<<<< HEAD
+include("Common", "Fabric", "Forge")
+=======
+include("Common", "Forge")
+
+if (!gradle.startParameter.projectProperties.getOrDefault("only_forge", "false").toBoolean()) {
+    include("Fabric")
+}
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)

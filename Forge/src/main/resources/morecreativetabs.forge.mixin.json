@@ -1,0 +1,27 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.hypherionmc.morecreativetabs.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "ForgeCreativeModeInventoryMixin",
+    "ForgeCreateTabMixin",
+    "ForgeCreativeTabRegistryMixin",
+    "ForgeCreativeTabsMixin",
+    "ForgeCreativeTabsScreenPageMixin",
+    "accessor.ForceCreativeTabAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)

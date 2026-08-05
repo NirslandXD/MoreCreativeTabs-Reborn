@@ -1,0 +1,56 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Grant Gradle wrapper permission
+        run: chmod +x gradlew
+
+<<<<<<< HEAD
+      - name: Build Fabric and Forge
+        run: ./gradlew :Fabric:build :Forge:build --stacktrace
+=======
+<<<<<<< HEAD
+      - name: Build Fabric and Forge
+        run: ./gradlew :Fabric:build :Forge:build --stacktrace
+=======
+      - name: Build and collect Fabric and Forge artifacts
+        run: ./gradlew clean build --stacktrace --max-workers=1
+
+      - name: Verify generated artifacts
+        run: test -n "$(find build/libs -type f -name '*.jar' -print -quit)"
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)

@@ -1,0 +1,28 @@
+archivesBaseName = "${mod_name.replace(" ", "").replace(":", "")}-Fabric-${minecraft_version}"
+
+dependencies {
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+}
+
+unimined.minecraft {
+    fabric {
+        loader fabric_loader
+        accessWidener(file("src/main/resources/morecreative.accesswidener"))
+    }
+}
+
+preRunClient.enabled = false
+
+processResources {
+    from project(":Common").sourceSets.main.resources
+    def buildProps = project.properties.clone()
+
+    filesMatching(['fabric.mod.json', 'pack.mcmeta']) {
+        expand buildProps
+    }
+}
+
+tasks.named("compileJava", JavaCompile) {
+    source(project(":Common").sourceSets.main.allSource)
+}

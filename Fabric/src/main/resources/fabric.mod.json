@@ -1,0 +1,64 @@
+{
+    "schemaVersion": 1,
+    "id": "morecreativetabsreborn",
+    "version": "${version}",
+
+    "name": "MoreCreativeTabs: Reborn",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 79b2a8a (initial commit)
+    "description": "Client-side creative tab customization via external resource packs. An active, updated fork continuing HypherionMC's MoreCreativeTabs mod.",
+    "authors": [
+      "HypherionSA",
+      "Nirsland",
+      "MoreCreativeTabs contributors"
+    ],
+    "contributors": [
+<<<<<<< HEAD
+=======
+=======
+    "description": "${mod_description}",
+    "authors": [
+      "Nirsland"
+    ],
+    "contributors": [
+      "HypherionSA",
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)
+      "Upstream MoreCreativeTabs contributors"
+    ],
+
+    "license": "MIT",
+    "icon": "assets/morecreativetabs/logo.png",
+    "environment": "client",
+    "entrypoints": {
+      "client": [
+        "me.hypherionmc.morecreativetabs.client.MoreCreativeTabsFabric"
+      ]
+    },
+    "mixins": [
+      "morecreativetabs.mixin.json",
+      "morecreativetabs.fabric.mixin.json"
+    ],
+    "accessWidener": "morecreative.accesswidener",
+    "depends": {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 79b2a8a (initial commit)
+      "fabricloader": ">=0.16.10",
+      "fabric": "*",
+      "minecraft": ["1.20", "1.20.1"],
+      "java": ">=17"
+<<<<<<< HEAD
+=======
+=======
+      "fabricloader": ">=${fabric_loader}",
+      "fabric": "*",
+      "minecraft": "${fabric_minecraft_range}",
+      "java": ">=${java_version}"
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)
+    }
+  }

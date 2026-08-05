@@ -1,0 +1,67 @@
+modLoader="javafml"
+<<<<<<< HEAD
+loaderVersion="[47,)"
+=======
+<<<<<<< HEAD
+loaderVersion="[47,)"
+=======
+loaderVersion="${forge_loader_range}"
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)
+license="MIT"
+
+[[mods]]
+modId="morecreativetabsreborn"
+version="${version}"
+displayName="MoreCreativeTabs: Reborn"
+logoFile="logo.png"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 79b2a8a (initial commit)
+credits="Fork of MoreCreativeTabs by HypherionMC"
+authors="HypherionSA, Nirsland, MoreCreativeTabsReborn contributors"
+displayTest="IGNORE_SERVER_VERSION"
+description='''
+Client-side creative tab customization via external resource packs. An active, updated fork continuing HypherionMC's MoreCreativeTabs mod.
+<<<<<<< HEAD
+=======
+=======
+credits="HypherionSA, Upstream MoreCreativeTabs contributors"
+authors="Nirsland"
+displayTest="IGNORE_SERVER_VERSION"
+description='''
+${mod_description}
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)
+'''
+
+[[dependencies.morecreativetabsreborn]]
+    modId="forge"
+    mandatory=true
+<<<<<<< HEAD
+    versionRange="[47,)"
+=======
+<<<<<<< HEAD
+    versionRange="[47,)"
+=======
+    versionRange="${forge_dependency_range}"
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.morecreativetabsreborn]]
+    modId="minecraft"
+    mandatory=true
+<<<<<<< HEAD
+    versionRange="[1.20,1.20.1]"
+=======
+<<<<<<< HEAD
+    versionRange="[1.20,1.20.1]"
+=======
+    versionRange="${forge_minecraft_range}"
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)
+    ordering="NONE"
+    side="CLIENT"

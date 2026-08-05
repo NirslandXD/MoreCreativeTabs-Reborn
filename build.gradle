@@ -1,0 +1,296 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+<<<<<<< HEAD
+    id "xyz.wagyourtail.unimined" version "1.2.4" apply false
+=======
+<<<<<<< HEAD
+    id "xyz.wagyourtail.unimined" version "1.2.4" apply false
+=======
+    id "xyz.wagyourtail.unimined" version "1.4.2+neofix.1" apply false
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)
+}
+
+group = project_group
+version = mod_version
+
+jar.enabled = false
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+def loaderNames = ["Fabric", "Forge"]
+
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)
+subprojects {
+    apply plugin: "xyz.wagyourtail.unimined"
+    apply plugin: 'java'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    version = rootProject.version
+<<<<<<< HEAD
+    java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+=======
+<<<<<<< HEAD
+    java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+=======
+    java.toolchain.languageVersion = JavaLanguageVersion.of(java_version.toInteger())
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)
+
+    group = rootProject.group
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly("org.projectlombok:lombok:${lombok}")
+        annotationProcessor("org.projectlombok:lombok:${lombok}")
+    }
+
+    jar {
+        manifest {
+            attributes([
+                    'Specification-Title'     : mod_name,
+                    'Specification-Vendor'    : mod_author,
+                    'Specification-Version'   : project.jar.archiveVersion,
+                    'Implementation-Title'    : project.name,
+                    'Implementation-Version'  : project.jar.archiveVersion,
+                    'Implementation-Vendor'   : mod_author,
+                    'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+                    'Built-On-Minecraft'      : minecraft_version
+            ])
+        }
+    }
+
+    unimined.minecraft(sourceSets.main, true) {
+        version minecraft_build_version
+
+        mappings {
+            mojmap()
+            devNamespace "mojmap"
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        it.options.encoding = 'UTF-8'
+<<<<<<< HEAD
+        it.options.release = 17
+=======
+<<<<<<< HEAD
+        it.options.release = 17
+=======
+        if (java_version.toInteger() >= 9)
+            it.options.release = java_version.toInteger()
+        else {
+            it.sourceCompatibility = '1.8'
+            it.targetCompatibility = '1.8'
+        }
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)
+    }
+
+    tasks.withType(GenerateModuleMetadata).configureEach {
+        enabled = false
+    }
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 79b2a8a (initial commit)
+    if (project.name in ["Fabric", "Forge"]) {
+        tasks.named("jar", Jar) {
+            destinationDirectory = rootProject.layout.buildDirectory.dir("combo/intermediates/${project.name}")
+        }
+        tasks.matching { it.name == "remapJar" }.configureEach {
+            destinationDirectory = rootProject.layout.buildDirectory.dir("combo/intermediates/${project.name}")
+<<<<<<< HEAD
+=======
+=======
+    if (project.name in loaderNames) {
+        def devOutputDir = layout.buildDirectory.dir("devlibs")
+        def remappedOutputDir = layout.buildDirectory.dir("libs")
+        tasks.named("jar", Jar) {
+            destinationDirectory = devOutputDir
+        }
+        tasks.matching { it.name == "remapJar" }.configureEach {
+            destinationDirectory = remappedOutputDir
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)
+        }
+    }
+}
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 79b2a8a (initial commit)
+def comboJarName = "${mod_name.replace(" ", "").replace(":", "")}-combo-${minecraft_version}"
+def comboMetadataDir = layout.buildDirectory.dir("generated/comboJar")
+def comboExcludedResources = [
+        "META-INF/MANIFEST.MF",
+        "META-INF/mods.toml",
+        "fabric.mod.json",
+        "morecreative.accesswidener",
+        "morecreativetabs*.json"
+]
+
+def relocateLoaderJar = { String loader, String prefix ->
+    tasks.register("relocate${loader}Jar", com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar) {
+        dependsOn(":${loader}:remapJar")
+        archiveFileName = "${loader.toLowerCase()}-relocated.jar"
+        destinationDirectory = layout.buildDirectory.dir("combo/tmp")
+        from({ zipTree(project(":${loader}").tasks.named("remapJar").get().archiveFile.get().asFile) })
+        comboExcludedResources.each { exclude(it) }
+        relocate("me.hypherionmc.morecreativetabs", "${prefix}.me.hypherionmc.morecreativetabs")
+    }
+}
+
+def relocateFabricJar = relocateLoaderJar("Fabric", "fabric")
+def relocateForgeJar = relocateLoaderJar("Forge", "forge")
+
+tasks.register("prepareComboMetadata") {
+    dependsOn(":Fabric:remapJar", ":Forge:remapJar")
+    inputs.files(
+            project(":Fabric").tasks.named("remapJar").flatMap { it.archiveFile },
+            project(":Forge").tasks.named("remapJar").flatMap { it.archiveFile }
+    )
+    outputs.dir(comboMetadataDir)
+
+    doLast {
+        def outputDir = comboMetadataDir.get().asFile
+        delete(outputDir)
+        outputDir.mkdirs()
+
+        def fabricJar = project(":Fabric").tasks.named("remapJar").get().archiveFile.get().asFile
+        def forgeJar = project(":Forge").tasks.named("remapJar").get().archiveFile.get().asFile
+
+        def copyEntry = { File jarFile, String source, String target ->
+            new java.util.zip.ZipFile(jarFile).withCloseable { zip ->
+                def entry = zip.getEntry(source)
+                if (entry == null)
+                    throw new GradleException("${source} not found in ${jarFile.name}")
+                def targetFile = new File(outputDir, target)
+                targetFile.parentFile.mkdirs()
+                targetFile.bytes = zip.getInputStream(entry).bytes
+            }
+        }
+
+        def writeEntry = { File jarFile, String source, String target, Closure<String> transform ->
+            new java.util.zip.ZipFile(jarFile).withCloseable { zip ->
+                def entry = zip.getEntry(source)
+                if (entry == null)
+                    throw new GradleException("${source} not found in ${jarFile.name}")
+                def targetFile = new File(outputDir, target)
+                targetFile.parentFile.mkdirs()
+                targetFile.text = transform(zip.getInputStream(entry).getText("UTF-8"))
+            }
+        }
+
+        def fabricText = { String text ->
+            text.replace("me.hypherionmc.morecreativetabs", "fabric.me.hypherionmc.morecreativetabs")
+                    .replace("me/hypherionmc/morecreativetabs", "fabric/me/hypherionmc/morecreativetabs")
+        }
+        def forgeText = { String text ->
+            text.replace("me.hypherionmc.morecreativetabs", "forge.me.hypherionmc.morecreativetabs")
+                    .replace("me/hypherionmc/morecreativetabs", "forge/me/hypherionmc/morecreativetabs")
+        }
+
+        writeEntry(fabricJar, "fabric.mod.json", "fabric.mod.json") { text ->
+            fabricText(text)
+                    .replace("morecreativetabs.mixin.json", "fabric-morecreativetabs.mixin.json")
+                    .replace("morecreativetabs.fabric.mixin.json", "fabric-morecreativetabs.fabric.mixin.json")
+                    .replace("morecreative.accesswidener", "fabric-morecreative.accesswidener")
+        }
+        copyEntry(fabricJar, "morecreative.accesswidener", "fabric-morecreative.accesswidener")
+        writeEntry(fabricJar, "morecreativetabs.mixin.json", "fabric-morecreativetabs.mixin.json") { text ->
+            fabricText(text).replace("morecreativetabs.mixin-refmap.json", "fabric-morecreativetabs.mixin-refmap.json")
+        }
+        writeEntry(fabricJar, "morecreativetabs.fabric.mixin.json", "fabric-morecreativetabs.fabric.mixin.json") { text ->
+            fabricText(text).replace("morecreativetabs.fabric.mixin-refmap.json", "fabric-morecreativetabs.fabric.mixin-refmap.json")
+        }
+        writeEntry(fabricJar, "morecreativetabs.mixin-refmap.json", "fabric-morecreativetabs.mixin-refmap.json", fabricText)
+        writeEntry(fabricJar, "morecreativetabs.fabric.mixin-refmap.json", "fabric-morecreativetabs.fabric.mixin-refmap.json", fabricText)
+
+        copyEntry(forgeJar, "META-INF/mods.toml", "META-INF/mods.toml")
+        writeEntry(forgeJar, "morecreativetabs.mixin.json", "forge-morecreativetabs.mixin.json") { text ->
+            forgeText(text).replace("morecreativetabs.mixin-refmap.json", "forge-morecreativetabs.mixin-refmap.json")
+        }
+        writeEntry(forgeJar, "morecreativetabs.forge.mixin.json", "forge-morecreativetabs.forge.mixin.json") { text ->
+            forgeText(text).replace("morecreativetabs.forge.mixin-refmap.json", "forge-morecreativetabs.forge.mixin-refmap.json")
+        }
+        writeEntry(forgeJar, "morecreativetabs.mixin-refmap.json", "forge-morecreativetabs.mixin-refmap.json", forgeText)
+        writeEntry(forgeJar, "morecreativetabs.forge.mixin-refmap.json", "forge-morecreativetabs.forge.mixin-refmap.json", forgeText)
+    }
+}
+
+tasks.register("comboJar", Jar) {
+    dependsOn(relocateFabricJar, relocateForgeJar, "prepareComboMetadata")
+    archiveBaseName = comboJarName
+    archiveVersion = mod_version
+    destinationDirectory = layout.buildDirectory.dir("libs")
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from({ zipTree(relocateFabricJar.get().archiveFile.get().asFile) })
+    from({ zipTree(relocateForgeJar.get().archiveFile.get().asFile) })
+    from(comboMetadataDir)
+
+    manifest {
+        attributes([
+                "Specification-Title"   : mod_name,
+                "Specification-Vendor"  : mod_author,
+                "Specification-Version" : project.version,
+                "Implementation-Title"  : "${mod_name} Combo",
+                "Implementation-Version": project.version,
+                "Implementation-Vendor" : mod_author,
+                "Built-On-Minecraft"    : minecraft_version,
+                "MixinConfigs"          : "forge-morecreativetabs.mixin.json,forge-morecreativetabs.forge.mixin.json"
+        ])
+    }
+}
+
+tasks.named("assemble") {
+    dependsOn("comboJar")
+}
+
+tasks.named("build") {
+    dependsOn("comboJar")
+<<<<<<< HEAD
+=======
+=======
+def loaderProjects = subprojects.findAll { it.name in loaderNames }
+
+loaderProjects.each { lp ->
+    def loaderProject = lp
+    def taskName = "collect${loaderProject.name}Output"
+    tasks.register(taskName, Copy) {
+        dependsOn(":${loaderProject.name}:remapJar")
+        def outputDir = layout.buildDirectory.dir("libs/${loaderProject.name}")
+        into(outputDir)
+        doFirst {
+            delete(outputDir)
+        }
+        from({ loaderProject.tasks.named("remapJar").get().archiveFile.get().asFile })
+        from(loaderProject.layout.buildDirectory.dir("devlibs")) {
+            include "*-dev.jar"
+        }
+    }
+}
+
+tasks.register("collectModloaderOutputs") {
+    dependsOn(loaderProjects.collect { "collect${it.name}Output" })
+}
+
+tasks.named("assemble") {
+    dependsOn("collectModloaderOutputs")
+}
+
+tasks.named("build") {
+    dependsOn("collectModloaderOutputs")
+>>>>>>> d16b230 (initial commit)
+>>>>>>> 79b2a8a (initial commit)
+}
