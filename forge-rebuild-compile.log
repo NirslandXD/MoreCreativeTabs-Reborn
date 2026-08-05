@@ -1,0 +1,60 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.6.4/userguide/gradle_daemon.html#sec:disabling_the_daemon.
+Daemon will be stopped at the end of the build 
+
+> Configure project :Forge
+MixinGradle did not locate the diffplug APT plugin, skipping eclipse task configuration
+WARNING: This project is configured to use the official obfuscation mappings provided by Mojang. These mapping fall under their associated license, you should be fully aware of this license. For the latest license text, refer below, or the reference copy here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md, You can hide this warning by running the `hideOfficialWarningUntilChanged` task
+WARNING: (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
+[00:18:10] [main/INFO]: Writing debug log file accesstransform.log
+[00:18:10] [main/INFO]: Access Transformer processor running version 8.0.7+8.0.7+master.43473d43
+[00:18:10] [main/INFO]: Command line arguments [--inJar, C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\fg_cache\net\minecraftforge\forge\1.19.1-42.0.9\forge-1.19.1-42.0.9-injected.jar, --outJar, C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\fg_cache\net\minecraftforge\forge\1.19.1-42.0.9_mapped_official_1.19.1\forge-1.19.1-42.0.9_mapped_official_1.19.1.jar, --logFile, accesstransform.log, --atFile, C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\src\main\resources\META-INF\accesstransformer.cfg, --atFile, C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\_atJar_4\parent_at.cfg]
+[00:18:10] [main/INFO]: Reading from C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\fg_cache\net\minecraftforge\forge\1.19.1-42.0.9\forge-1.19.1-42.0.9-injected.jar
+[00:18:10] [main/INFO]: Writing to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\fg_cache\net\minecraftforge\forge\1.19.1-42.0.9_mapped_official_1.19.1\forge-1.19.1-42.0.9_mapped_official_1.19.1.jar
+[00:18:10] [main/INFO]: Transformer file C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\src\main\resources\META-INF\accesstransformer.cfg
+[00:18:10] [main/INFO]: Transformer file C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\_atJar_4\parent_at.cfg
+[00:18:10] [main/WARN]: Found existing output jar C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\fg_cache\net\minecraftforge\forge\1.19.1-42.0.9_mapped_official_1.19.1\forge-1.19.1-42.0.9_mapped_official_1.19.1.jar, overwriting
+[00:18:18] [main/INFO]: JAR transformation complete C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\fg_cache\net\minecraftforge\forge\1.19.1-42.0.9_mapped_official_1.19.1\forge-1.19.1-42.0.9_mapped_official_1.19.1.jar
+Creating SRG -> MCP TSRG
+
+> Task :Common:compileJava SKIPPED
+> Task :Common:processResources
+> Task :Common:classes
+> Task :Common:jar SKIPPED
+> Task :Forge:downloadMcpConfig
+> Task :Forge:extractSrg
+> Task :Forge:createMcpToSrg
+
+> Task :Forge:compileJava
+Note: SpongePowered MIXIN Annotation Processor Version=0.8.5 (MixinGradle Version=0.7)
+Note: Supported obfuscation types: ObfuscationServiceMCP supports [notch] ObfuscationServiceFG3 supports [searge]
+Note: Loading searge mappings from C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\createMcpToSrg\output.tsrg
+Note: Writing refmap to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing refmap to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing searge composite mappings to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\tmp\compileJava\compileJava-mappings.tsrg
+Note: Writing refmap to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing refmap to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing searge composite mappings to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\tmp\compileJava\compileJava-mappings.tsrg
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:31: warning: [removal] tab_icon in CustomCreativeTab has been deprecated and marked for removal
+        } else if (json.tab_icon != null) {
+                       ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:33: warning: [removal] tab_icon in CustomCreativeTab has been deprecated and marked for removal
+            tabIcon.name = json.tab_icon;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:85: warning: [removal] tab_icon in CustomCreativeTab has been deprecated and marked for removal
+                            && (json.tab_icon == null || json.tab_icon.isBlank()))
+                                    ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:85: warning: [removal] tab_icon in CustomCreativeTab has been deprecated and marked for removal
+                            && (json.tab_icon == null || json.tab_icon.isBlank()))
+                                                             ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 warnings
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.6.4/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 1m 31s
+5 actionable tasks: 5 executed

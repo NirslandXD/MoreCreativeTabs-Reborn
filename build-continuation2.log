@@ -1,0 +1,71 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.6.4/userguide/gradle_daemon.html#sec:disabling_the_daemon.
+Daemon will be stopped at the end of the build 
+
+> Configure project :Fabric
+Fabric Loom: 1.0.18
+
+> Configure project :Forge
+MixinGradle did not locate the diffplug APT plugin, skipping eclipse task configuration
+WARNING: This project is configured to use the official obfuscation mappings provided by Mojang. These mapping fall under their associated license, you should be fully aware of this license. For the latest license text, refer below, or the reference copy here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md, You can hide this warning by running the `hideOfficialWarningUntilChanged` task
+WARNING: (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
+[22:51:56] [main/INFO]: Writing debug log file accesstransform.log
+[22:51:56] [main/INFO]: Access Transformer processor running version 8.0.7+8.0.7+master.43473d43
+[22:51:56] [main/INFO]: Command line arguments [--inJar, C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\fg_cache\net\minecraftforge\forge\1.19.1-42.0.9\forge-1.19.1-42.0.9-injected.jar, --outJar, C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\fg_cache\net\minecraftforge\forge\1.19.1-42.0.9_mapped_official_1.19.1\forge-1.19.1-42.0.9_mapped_official_1.19.1.jar, --logFile, accesstransform.log, --atFile, C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\src\main\resources\META-INF\accesstransformer.cfg, --atFile, C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\_atJar_4\parent_at.cfg]
+[22:51:56] [main/INFO]: Reading from C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\fg_cache\net\minecraftforge\forge\1.19.1-42.0.9\forge-1.19.1-42.0.9-injected.jar
+[22:51:56] [main/INFO]: Writing to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\fg_cache\net\minecraftforge\forge\1.19.1-42.0.9_mapped_official_1.19.1\forge-1.19.1-42.0.9_mapped_official_1.19.1.jar
+[22:51:56] [main/INFO]: Transformer file C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\src\main\resources\META-INF\accesstransformer.cfg
+[22:51:56] [main/INFO]: Transformer file C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\_atJar_4\parent_at.cfg
+[22:51:56] [main/WARN]: Found existing output jar C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\fg_cache\net\minecraftforge\forge\1.19.1-42.0.9_mapped_official_1.19.1\forge-1.19.1-42.0.9_mapped_official_1.19.1.jar, overwriting
+[22:52:02] [main/INFO]: JAR transformation complete C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Forge\build\fg_cache\net\minecraftforge\forge\1.19.1-42.0.9_mapped_official_1.19.1\forge-1.19.1-42.0.9_mapped_official_1.19.1.jar
+Creating SRG -> MCP TSRG
+
+> Task :Fabric:clean
+> Task :Common:compileJava SKIPPED
+> Task :Common:processResources UP-TO-DATE
+> Task :Common:classes UP-TO-DATE
+> Task :Common:jar SKIPPED
+
+> Task :Fabric:compileJava
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Fabric\src\main\java\me\hypherionmc\morecreativetabs\client\FabricResourceLoader.java:44: error: cannot find symbol
+        Map<ResourceLocation, Resource> customTabs = new HashMap<>();
+                                                         ^
+  symbol:   class HashMap
+  location: class FabricResourceLoader
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:31: warning: [removal] tab_icon in CustomCreativeTab has been deprecated and marked for removal
+        } else if (json.tab_icon != null) {
+                       ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:33: warning: [removal] tab_icon in CustomCreativeTab has been deprecated and marked for removal
+            tabIcon.name = json.tab_icon;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:85: warning: [removal] tab_icon in CustomCreativeTab has been deprecated and marked for removal
+                            && (json.tab_icon == null || json.tab_icon.isBlank()))
+                                    ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.1\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:85: warning: [removal] tab_icon in CustomCreativeTab has been deprecated and marked for removal
+                            && (json.tab_icon == null || json.tab_icon.isBlank()))
+                                                             ^
+1 error
+4 warnings
+
+> Task :Fabric:compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':Fabric:compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.6.4/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD FAILED in 1m 17s
+3 actionable tasks: 2 executed, 1 up-to-date
