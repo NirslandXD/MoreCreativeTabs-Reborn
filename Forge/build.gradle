@@ -1,0 +1,254 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
+
+def loaderName = project.name.substring(0, 1).toUpperCase() + project.name.substring(1).toLowerCase()
+def minecraftVersionLabel = project.findProperty('minecraft_version_display') ?: minecraft_version
+archivesBaseName = "${mod_name.replace(":", "").replace(" ", "")}-${loaderName}-${minecraftVersionLabel}"
+
+mixin {
+    add sourceSets.main, "${mod_id}.refmap.json"
+    config "morecreativetabs.mixins.json"
+    config "morecreativetabs.forge.mixins.json"
+}
+
+minecraft {
+    mappings channel: 'snapshot', version: '20210309-1.16.5'
+
+    if (project.hasProperty('forge_ats_enabled') && project.findProperty('forge_ats_enabled').toBoolean()) {
+        accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+        project.logger.debug('Forge Access Transformers are enabled for this project.')
+    }
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            args "-mixin.config=morecreativetabs.mixins.json"
+            ideaModule "${rootProject.name}.${project.name}.main"
+            taskName 'Client'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            mods {
+                modClientRun {
+                    source sourceSets.main
+                    source project(":Common").sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run')
+            ideaModule "${rootProject.name}.${project.name}.main"
+            taskName 'Server'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            mods {
+                modServerRun {
+                    source sourceSets.main
+                    source project(":Common").sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('run')
+            ideaModule "${rootProject.name}.${project.name}.main"
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            taskName 'Data'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            mods {
+                modDataRun {
+                    source sourceSets.main
+                    source project(":Common").sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+sourceSets.main.resources.srcDir 'src/generated/resources'
+
+def forgeCommonSourceDir = layout.buildDirectory.dir('generated/sources/forgeCommon/main')
+
+sourceSets.main.java.srcDir(forgeCommonSourceDir)
+
+def generateForgeCommonSources = tasks.register('generateForgeCommonSources') {
+    def commonJavaDir = project(":Common").file('src/main/java')
+    inputs.dir(commonJavaDir)
+    outputs.dir(forgeCommonSourceDir)
+
+    doLast {
+        def outputDir = forgeCommonSourceDir.get().asFile
+        delete(outputDir)
+
+        fileTree(commonJavaDir).matching { include '**/*.java' }.each { source ->
+            def relativePath = source.absolutePath.substring(commonJavaDir.absolutePath.length() + 1)
+            def target = new File(outputDir, relativePath)
+            target.parentFile.mkdirs()
+
+            def contents = source.getText('UTF-8')
+            [
+                    'net.minecraft.client.gui.screens.inventory': 'net.minecraft.client.gui.screen.inventory',
+                    'net.minecraft.client.gui.components.EditBox': 'net.minecraft.client.gui.widget.TextFieldWidget',
+                    'net.minecraft.core.NonNullList': 'net.minecraft.util.NonNullList',
+                    'net.minecraft.core.Registry': 'net.minecraft.util.registry.Registry',
+                    'net.minecraft.nbt.CompoundTag': 'net.minecraft.nbt.CompoundNBT',
+                    'net.minecraft.nbt.TagParser': 'net.minecraft.nbt.JsonToNBT',
+                    'net.minecraft.network.chat.TranslatableComponent': 'net.minecraft.util.text.TranslationTextComponent',
+                    'net.minecraft.network.chat.TextComponent': 'net.minecraft.util.text.StringTextComponent',
+                    'net.minecraft.network.chat.Component': 'net.minecraft.util.text.ITextComponent',
+                    'net.minecraft.world.item.TooltipFlag': 'net.minecraft.client.util.ITooltipFlag',
+                    'net.minecraft.ChatFormatting': 'net.minecraft.util.text.TextFormatting',
+                    'net.minecraft.world.entity.player.Player': 'net.minecraft.entity.player.PlayerEntity',
+                    'net.minecraft.entity.player.Player': 'net.minecraft.entity.player.PlayerEntity',
+                    'net.minecraft.resources.ResourceLocation': 'net.minecraft.util.ResourceLocation',
+                    'net.minecraft.server.packs.resources.Resource': 'net.minecraft.resources.IResource',
+                    'net.minecraft.server.packs.resources.ResourceManagerReloadListener': 'net.minecraft.resources.IResourceManagerReloadListener',
+                    'net.minecraft.server.packs.resources.ResourceManager': 'net.minecraft.resources.IResourceManager',
+                    'net.minecraft.tags.Tag': 'net.minecraft.tags.ITag',
+                    'net.minecraft.world.item': 'net.minecraft.item'
+            ].each { from, to -> contents = contents.replace(from, to) }
+
+            [
+                    'CreativeModeInventoryScreen': 'CreativeScreen',
+                    'CreativeModeTab': 'ItemGroup',
+                    'EditBox': 'TextFieldWidget',
+                    'CompoundTag': 'CompoundNBT',
+                    'TagParser': 'JsonToNBT',
+                    'TooltipFlag': 'ITooltipFlag',
+                    'TranslatableComponent': 'TranslationTextComponent',
+                    'TextComponent': 'StringTextComponent',
+                    'Component': 'ITextComponent',
+                    'Resource': 'IResource',
+                    'Tag': 'ITag',
+                    'ChatFormatting': 'TextFormatting',
+                    'TABS': 'GROUPS',
+                    'TAB_SEARCH': 'SEARCH',
+                    'TAB_INVENTORY': 'INVENTORY',
+                    'TAB_HOTBAR': 'HOTBAR',
+                    'getDisplayName': 'getGroupName',
+                    'getIconItem': 'getIcon',
+                    'fillItemList': 'fill',
+                    'getRecipeFolderName': 'getPath',
+                    'makeIcon': 'createIcon',
+                    'getId': 'getIndex',
+                    'fillItemCategory': 'fillItemGroup',
+                    'category': 'group',
+                    'selectedTab': 'selectedTabIndex',
+                    'searchBox': 'searchField',
+                    'visibleTags': 'tagSearchResults',
+                    'scrollOffs': 'currentScroll'
+            ].each { from, to -> contents = contents.replaceAll("\\b${from}\\b", to) }
+
+            contents = contents
+                    .replace('CreativeScreen.ItemPickerMenu', 'CreativeScreen.CreativeContainer')
+                    .replace('import net.minecraft.item.ITooltipFlag;', 'import net.minecraft.client.util.ITooltipFlag;')
+                    .replace('import net.minecraft.util.text.TextFormatting;', 'import net.minecraft.util.text.TextFormatting;')
+                    .replace('import net.minecraft.client.gui.components.TextFieldWidget;', 'import net.minecraft.client.gui.widget.TextFieldWidget;')
+                    .replace('ITooltipFlag.Default', 'ITooltipFlag.TooltipFlags')
+                    .replace('PlayerEntityEntity', 'PlayerEntity')
+                    .replaceAll('\\bPlayer\\b', 'PlayerEntity')
+                    .replace('@Accessor\n    void setId(int id);', '@Accessor("index")\n    void setId(int id);')
+                    .replace('"setBackgroundSuffix"', '"setBackgroundImageName"')
+                    .replace('mctSetBackgroundSuffix', 'mctSetBackgroundImageName')
+                    .replace('searchField.getValue()', 'searchField.getText()')
+                    .replace('searchField.setValue("")', 'searchField.setText("")')
+                    .replace('searchField.setFocus(', 'searchField.setFocused2(')
+                    .replace('searchField.isVisible()', 'searchField.getVisible()')
+                    .replace('searchField.canConsumeInput()', 'searchField.canWrite()')
+                    .replace('.setHoverName(', '.setDisplayName(')
+                    .replace('ItemStack.isSame(', 'ItemStack.areItemsEqual(')
+                    .replace('ItemStack.tagMatches(', 'ItemStack.areItemStackTagsEqual(')
+                    .replace('ItemTags.getAllTags().getTag(', 'ItemTags.getCollection().getTag(')
+                    .replace('itemTag.getValues()', 'itemTag.getAllElements()')
+                    .replace('.getMenu()', '.getContainer()')
+                    .replace('menu.items', 'menu.itemList')
+                    .replace('setFocused(searchField)', 'setListener(searchField)')
+                    .replace('setFocused(null)', 'setListener(null)')
+                    .replace('ResourceLocation.tryParse(', 'new ResourceLocation(')
+                    .replace('JsonToNBT.parseTag(', 'JsonToNBT.getTagFromJson(')
+                    .replace('.getSelectedTab()', '.getSelectedTabIndex()')
+                    .replace('minecraft.screen', 'minecraft.currentScreen')
+                    .replace('minecraft.getWindow()', 'minecraft.getMainWindow()')
+                    .replaceAll('\\bimageWidth\\b', 'xSize')
+                    .replaceAll('\\bimageHeight\\b', 'ySize')
+                    .replaceAll('\\bleftPos\\b', 'guiLeft')
+                    .replaceAll('\\btopPos\\b', 'guiTop')
+                    .replace('blitOffset', 'zLevel')
+                    .replace('renderAndDecorateItem', 'renderItemAndEffectIntoGUI')
+                    .replace('renderGuiItemDecorations', 'renderItemOverlays')
+                    .replace('isHovering(', 'isPointInRegion(')
+                    .replace('.withStyle(', '.mergeStyle(')
+                    .replace('getTooltipLines(', 'getTooltip(')
+                    .replace('minecraft.options', 'minecraft.gameSettings')
+                    .replace('.getGuiScaledWidth()', '.getScaledWidth()')
+                    .replace('.getGuiScaledHeight()', '.getScaledHeight()')
+                    .replace('ItemTags.getAllTags().getMatchingTags(', 'ItemTags.getCollection().getOwningTags(')
+                    .replace('ItemTags.getCollection().getTag(', 'ItemTags.getCollection().get(')
+                    .replace('"getItemCategory"', '"getGroup"')
+                    .replace('"getTooltipLines"', '"getTooltip"')
+                    .replace('"getBackgroundSuffix"', '"getBackgroundImageName"')
+                    .replace('"selectTab"', '"setCurrentCreativeTab"')
+                    .replace('"refreshSearchResults"', '"updateCreativeSearch"')
+
+            target.setText(contents, 'UTF-8')
+        }
+    }
+}
+
+tasks.named('compileJava') {
+    dependsOn(generateForgeCommonSources)
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+processResources {
+    from project(":Common").sourceSets.main.resources
+
+    filesMatching('META-INF/mods.toml') {
+        expand "mod_author": mod_author, "mod_credits": mod_credits, "mod_description": mod_description,
+                "forge_version_range": forge_version_range, "minecraft_version_range": minecraft_version_range,
+                file: [jarVersion: '${file.jarVersion}']
+    }
+
+    filesMatching('*.mixins.json') {
+        expand "refmap_target": "${mod_id}."
+    }
+}
+
+
+jar.finalizedBy('reobfJar')
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId project.group
+            artifactId project.archivesBaseName
+            version project.version
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file://" + System.getenv("local_maven")
+        }
+    }
+}
