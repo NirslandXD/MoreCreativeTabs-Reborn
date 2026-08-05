@@ -1,0 +1,25 @@
+archivesBaseName = "${mod_name.replace(" ", "").replace(":", "")}-Common-${minecraft_version_display}"
+
+jar.enabled = false
+assemble.enabled = false
+compileJava.enabled = false
+
+dependencies {
+
+}
+
+unimined.minecraft {
+    fabric {
+        loader fabric_loader
+    }
+
+    defaultRemapJar = false
+}
+
+processResources {
+    def buildProps = project.properties.clone()
+
+    filesMatching(['pack.mcmeta']) {
+        expand buildProps
+    }
+}

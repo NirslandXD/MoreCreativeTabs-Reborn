@@ -1,0 +1,110 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id "xyz.wagyourtail.unimined" version "1.4.2+neofix.1" apply false
+}
+
+group = project_group
+version = mod_version
+
+jar.enabled = false
+
+def loaderNames = ["Fabric", "Forge"]
+def combinedMinecraftVersion = minecraft_version_display
+
+subprojects {
+    apply plugin: "xyz.wagyourtail.unimined"
+    apply plugin: 'java'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    version = rootProject.version
+    java.toolchain.languageVersion = JavaLanguageVersion.of(java_version.toInteger())
+
+    group = rootProject.group
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly("org.projectlombok:lombok:${lombok}")
+        annotationProcessor("org.projectlombok:lombok:${lombok}")
+    }
+
+    jar {
+        manifest {
+            attributes([
+                    'Specification-Title'     : mod_name,
+                    'Specification-Vendor'    : mod_author,
+                    'Specification-Version'   : project.jar.archiveVersion,
+                    'Implementation-Title'    : project.name,
+                    'Implementation-Version'  : project.jar.archiveVersion,
+                    'Implementation-Vendor'   : mod_author,
+                    'Built-On-Java'           : "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+                    'Built-On-Minecraft'      : rootProject.name == 'MoreCreativeTabsReborn' ? combinedMinecraftVersion : minecraft_version
+            ])
+        }
+    }
+
+    unimined.minecraft(sourceSets.main, true) {
+        version minecraft_build_version
+
+        mappings {
+            mojmap()
+            devNamespace "mojmap"
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        it.options.encoding = 'UTF-8'
+        if (java_version.toInteger() >= 9)
+            it.options.release = java_version.toInteger()
+        else {
+            it.sourceCompatibility = '1.8'
+            it.targetCompatibility = '1.8'
+        }
+    }
+
+    tasks.withType(GenerateModuleMetadata).configureEach {
+        enabled = false
+    }
+
+    if (project.name in loaderNames) {
+        def devOutputDir = layout.buildDirectory.dir("devlibs")
+        def remappedOutputDir = layout.buildDirectory.dir("libs")
+        tasks.named("jar", Jar) {
+            destinationDirectory = devOutputDir
+        }
+        tasks.matching { it.name == "remapJar" }.configureEach {
+            destinationDirectory = remappedOutputDir
+        }
+    }
+}
+
+def loaderProjects = subprojects.findAll { it.name in loaderNames }
+
+loaderProjects.each { lp ->
+    def loaderProject = lp
+    def taskName = "collect${loaderProject.name}Output"
+    tasks.register(taskName, Copy) {
+        dependsOn(":${loaderProject.name}:remapJar")
+        def outputDir = layout.buildDirectory.dir("libs/${loaderProject.name}")
+        into(outputDir)
+        from({ loaderProject.tasks.named("remapJar").get().archiveFile.get().asFile })
+        from(loaderProject.layout.buildDirectory.dir("devlibs")) {
+            include "*-dev.jar"
+        }
+    }
+}
+
+tasks.register("collectModloaderOutputs") {
+    dependsOn(loaderProjects.collect { "collect${it.name}Output" })
+}
+
+tasks.named("assemble") {
+    dependsOn("collectModloaderOutputs")
+}
+
+tasks.named("build") {
+    dependsOn("collectModloaderOutputs")
+}

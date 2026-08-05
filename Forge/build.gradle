@@ -1,0 +1,35 @@
+archivesBaseName = "${mod_name.replace(" ", "").replace(":", "")}-Forge-${minecraft_version_display}"
+
+dependencies {
+}
+
+unimined.minecraft {
+    minecraftForge {
+        loader forge_version
+        mixinConfig("morecreativetabs.mixin.json", "morecreativetabs.forge.mixin.json")
+    }
+}
+
+processResources {
+    from project(":Common").sourceSets.main.resources
+    def buildProps = project.properties.clone()
+    inputs.properties([
+            modVersion            : project.version,
+            forgeLoaderRange      : buildProps.forge_loader_range,
+            forgeDependencyRange  : buildProps.forge_dependency_range,
+            forgeMinecraftRange   : buildProps.forge_minecraft_range,
+            declaredMinecraft     : buildProps.minecraft_version,
+            resourcePackFormat    : resource_pack_format
+    ])
+
+    filesMatching(["META-INF/mods.toml", "pack.mcmeta"]) {
+        expand buildProps
+    }
+}
+
+
+preRunClient.enabled = false
+
+tasks.named("compileJava", JavaCompile) {
+    source(project(":Common").sourceSets.main.allSource)
+}

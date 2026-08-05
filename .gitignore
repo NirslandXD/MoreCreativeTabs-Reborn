@@ -1,0 +1,44 @@
+# Build output
+.gradle/
+**/build/
+**/run/
+artifacts/
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.metadata/
+bin/
+out/
+eclipse/
+*.launch
+
+# Minecraft and JVM runtime files
+logs/
+crash-reports/
+saves/
+resourcepacks/
+screenshots/
+*.log
+*.log.gz
+*.lock
+hs_err_pid*
+replay_pid*
+.mixin.out/
+
+# Operating systems
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local configuration
+.env
+.env.*
+!.env.example
+local.properties

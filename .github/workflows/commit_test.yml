@@ -1,0 +1,99 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  fabric:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Grant Gradle wrapper permission
+        run: chmod +x gradlew
+
+      - name: Build Fabric 1.19.3
+        run: >-
+          ./gradlew :Fabric:clean :Fabric:build :collectFabricOutput
+          -Pminecraft_version=1.19.3
+          -Pminecraft_build_version=1.19.3
+          -Presource_pack_format=12
+          --stacktrace
+
+  forge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - minecraft: '1.19.3'
+            forge: '44.1.0'
+            loader_range: '[44,)'
+            minecraft_range: '[1.19.3,1.20)'
+            pack_format: '12'
+          - minecraft: '1.19.4'
+            forge: '45.4.0'
+            loader_range: '[44,)'
+            minecraft_range: '[1.19.3,1.20)'
+            pack_format: '13'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: gradle
+
+      - name: Validate Gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Grant Gradle wrapper permission
+        run: chmod +x gradlew
+
+      - name: Build Forge ${{ matrix.minecraft }}
+        run: >-
+          ./gradlew :Forge:clean :Forge:build :collectForgeOutput
+          -Ponly_forge=true
+          -Pminecraft_version=${{ matrix.minecraft }}
+          -Pminecraft_build_version=${{ matrix.minecraft }}
+          -Pforge_version=${{ matrix.forge }}
+          '-Pforge_loader_range=${{ matrix.loader_range }}'
+          '-Pforge_dependency_range=${{ matrix.loader_range }}'
+          '-Pforge_minecraft_range=${{ matrix.minecraft_range }}'
+          -Presource_pack_format=${{ matrix.pack_format }}
+          --stacktrace
