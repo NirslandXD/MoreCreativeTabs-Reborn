@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+archivesBaseName = "${mod_name.replace(":", "").replace(" ", "")}-common-${minecraft_version}"
+
+// Common sources are compiled by the Fabric and Forge projects with their
+// loader-specific Minecraft dependencies. Keeping this project as a plain
+// Java source/resource container avoids Sponge Vanilla Gradle incompatibilities
+// on modern Gradle while preserving the original multi-loader layout.
+
+tasks.withType(JavaCompile).configureEach {
+    enabled = false
+}
+
+jar {
+    enabled = false
+}
+
+processResources {
+    def buildProps = project.properties.clone()
+
+    filesMatching(['pack.mcmeta']) {
+        expand buildProps
+    }
+}

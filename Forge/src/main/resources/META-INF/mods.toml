@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="MIT"
+
+[[mods]]
+modId="morecreativetabsreborn"
+version="${file.jarVersion}"
+displayName="MoreCreativeTabs: Reborn"
+#updateJSONURL="https://change.me.example.invalid/updates.json"
+logoFile="logo.png"
+credits="${mod_credits}"
+authors="${mod_author}"
+description='''
+${mod_description}
+'''
+
+[[dependencies.morecreativetabsreborn]]
+    modId="forge"
+    mandatory=true
+    versionRange="[40,)"
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.morecreativetabsreborn]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2,1.19)"
+    ordering="NONE"
+    side="CLIENT"
