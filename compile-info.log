@@ -1,0 +1,200 @@
+Initialized native services in: C:\Users\Nirsland\.gradle\native
+Initialized jansi services in: C:\Users\Nirsland\.gradle\native
+Received JVM installation metadata from 'C:\Program Files\Java\jdk-17': {JAVA_HOME=C:\Program Files\Java\jdk-17, JAVA_VERSION=17.0.12, JAVA_VENDOR=Oracle Corporation, RUNTIME_NAME=Java(TM) SE Runtime Environment, RUNTIME_VERSION=17.0.12+8-LTS-286, VM_NAME=Java HotSpot(TM) 64-Bit Server VM, VM_VERSION=17.0.12+8-LTS-286, VM_VENDOR=Oracle Corporation, OS_ARCH=amd64}
+Checking if the launcher JVM can be re-used for build. To be re-used, the launcher JVM needs to match the parameters required for the build process: --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED -Xmx3G -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant
+To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.6.4/userguide/gradle_daemon.html#sec:disabling_the_daemon.
+Starting process 'Gradle build daemon'. Working directory: C:\Users\Nirsland\.gradle\daemon\7.6.4 Command: C:\Program Files\Java\jdk-17\bin\java.exe --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED -Xmx3G -Dfile.encoding=windows-1252 -Duser.country=US -Duser.language=en -Duser.variant -cp C:\Users\Nirsland\.gradle\wrapper\dists\gradle-7.6.4-bin\eq47ircvekz8t0m2yd28ebfsh\gradle-7.6.4\lib\gradle-launcher-7.6.4.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 7.6.4
+Successfully started process 'Gradle build daemon'
+An attempt to start the daemon took 2.309 secs.
+The client will now receive all logging from the daemon (pid: 14680). The daemon log file: C:\Users\Nirsland\.gradle\daemon\7.6.4\daemon-14680.out.log
+Closing daemon's stdin at end of input.
+The daemon will no longer process any standard input.
+Daemon will be stopped at the end of the build 
+Using 16 worker leases.
+Received JVM installation metadata from 'C:\Program Files\Java\jdk-17': {JAVA_HOME=C:\Program Files\Java\jdk-17, JAVA_VERSION=17.0.12, JAVA_VENDOR=Oracle Corporation, RUNTIME_NAME=Java(TM) SE Runtime Environment, RUNTIME_VERSION=17.0.12+8-LTS-286, VM_NAME=Java HotSpot(TM) 64-Bit Server VM, VM_VERSION=17.0.12+8-LTS-286, VM_VENDOR=Oracle Corporation, OS_ARCH=amd64}
+Watching the file system is configured to be enabled if available
+Now considering [C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2] as hierarchies to watch
+File system watching is active
+Starting Build
+Settings evaluated using settings file 'C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\settings.gradle'.
+Projects loaded. Root project using build file 'C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\build.gradle'.
+Included projects: [root project 'MoreCreativeTabsReborn-1.19.2', project ':Common', project ':Fabric', project ':Forge']
+
+> Configure project :
+Evaluating root project 'MoreCreativeTabsReborn-1.19.2' using build file 'C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\build.gradle'.
+
+> Configure project :Common
+Evaluating project ':Common' using build file 'C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\build.gradle'.
+
+> Configure project :Fabric
+Evaluating project ':Fabric' using build file 'C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Fabric\build.gradle'.
+Fabric Loom: 1.0.18
+(kotlinx.metadata.jvm.KotlinClassMetadata) with version (0.4.2) was loaded from (/C:/Users/Nirsland/.gradle/caches/jars-9/aa84490a223a4d08dd16cb2404afe171/kotlinx-metadata-jvm-0.4.2.jar)
+(org.objectweb.asm.ClassVisitor) with version (9.3) was loaded from (/C:/Users/Nirsland/.gradle/caches/jars-9/7288ee27c3003682b36c034a85648236/asm-9.3.jar)
+(org.objectweb.asm.tree.analysis.Analyzer) with version (9.3) was loaded from (/C:/Users/Nirsland/.gradle/caches/jars-9/8d0226aee5451bd5f871a95a9c0b868d/asm-analysis-9.3.jar)
+(org.objectweb.asm.commons.ClassRemapper) with version (9.3) was loaded from (/C:/Users/Nirsland/.gradle/caches/jars-9/5f76c3ee0f6cd686d1823292e8884576/asm-commons-9.3.jar)
+(org.objectweb.asm.tree.ClassNode) with version (9.3) was loaded from (/C:/Users/Nirsland/.gradle/caches/jars-9/7559ef717d357914839337d11838ed40/asm-tree-9.3.jar)
+(org.objectweb.asm.util.ASMifier) with version (9.3) was loaded from (/C:/Users/Nirsland/.gradle/caches/jars-9/9a70eb1dc8830c1ed633a32f8f8067a7/asm-util-9.3.jar)
+(com.fasterxml.jackson.databind.ObjectMapper) with version (2.13.3) was loaded from (/C:/Users/Nirsland/.gradle/caches/jars-9/2530b9dbe7e73e513d93dd7aea12a8c3/jackson-databind-2.13.3.jar)
+(com.google.gson.Gson) with version (null) was loaded from (/C:/Users/Nirsland/.gradle/caches/jars-9/0db5196c292a26b6e953fc911ebcf669/gson-2.9.0.jar)
+(com.google.common.base.Preconditions) with version (null) was loaded from (/C:/Users/Nirsland/.gradle/caches/jars-9/74cd64c01fd86fb39aa5f7d45239db51/guava-31.1-jre.jar)
+(org.apache.commons.io.FileUtils) with version (2.11.0) was loaded from (/C:/Users/Nirsland/.gradle/caches/jars-9/45642f8e99cc97e7ec02a71c144f9c4a/commons-io-2.11.0.jar)
+:setting up loom dependencies
+Searching through modCompileClasspath for installer JSON
+Found installer JSON in C:\Users\Nirsland\.gradle\caches\modules-2\files-2.1\net.fabricmc\fabric-loader\0.14.8\4679d97613a913bba916ebeb24f1e523340c38b\fabric-loader-0.14.8.jar
+Configuring compiler arguments for Java
+Adding mixin to classpath of AP config: annotationProcessor
+Adding mixin to classpath of AP config: testAnnotationProcessor
+
+> Configure project :Forge
+Evaluating project ':Forge' using build file 'C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build.gradle'.
+Creating reobfuscation task for JarJar task: jarJar
+MixinGradle did not locate the diffplug APT plugin, skipping eclipse task configuration
+Downloading net.minecraft:client:1.19.2:mappings@txt
+WARNING: This project is configured to use the official obfuscation mappings provided by Mojang. These mapping fall under their associated license, you should be fully aware of this license. For the latest license text, refer below, or the reference copy here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md, You can hide this warning by running the `hideOfficialWarningUntilChanged` task
+WARNING: (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
+Downloading net.minecraftforge:forge:1.19.2-43.2.0:userdev
+Downloading net.minecraftforge:forge:1.19.2-43.2.0:universal@jar
+Downloading net.minecraftforge:forge:1.19.2-43.2.0:sources@jar
+Downloading de.oceanlabs.mcp:mcp_config:1.19.2-20220805.130853@zip
+Downloading de.oceanlabs.mcp:mcp_config:1.19.2@zip
+Resource missing. [HTTP GET: https://repo.spongepowered.org/repository/maven-public/cpw/mods/modlauncher/10.0.9/modlauncher-10.0.9.pom]
+Resource missing. [HTTP GET: https://repo.spongepowered.org/repository/maven-public/cpw/mods/modlauncher/9.0.24/modlauncher-9.0.24.pom]
+Downloading de.oceanlabs.mcp:mcp_config:1.19.2@zip
+Adding source set 'main' to mixin processor
+Not adding source set 'main' to mixin processor, sourceSet already added
+All projects evaluated.
+Downloading net.minecraft:mappings_official:1.19.2@zip
+Downloading net.minecraft:client:1.19.2:mappings@txt
+Downloading net.minecraft:server:1.19.2:mappings@txt
+Downloading de.oceanlabs.mcp:mcp_config:1.19.2@zip
+Downloading de.oceanlabs.mcp:mcp_config:1.19.2@zip
+Downloading net.minecraft:client:1.19.2:mappings@txt
+Downloading net.minecraft:server:1.19.2:mappings@txt
+Downloading de.oceanlabs.mcp:mcp_config:1.19.2@zip
+Downloading de.oceanlabs.mcp:mcp_config:1.19.2@zip
+Downloading net.minecraft:client:1.19.2:mappings@txt
+Downloading net.minecraft:mappings_official:1.19.2@zip
+Downloading net.minecraft:server:1.19.2:mappings@txt
+Downloading de.oceanlabs.mcp:mcp_config:1.19.2@zip
+Downloading de.oceanlabs.mcp:mcp_config:1.19.2@zip
+Task path ':Forge:compileJava' matched project ':Forge'
+Task name matched 'compileJava'
+Selected primary task 'compileJava' from project :Forge
+Starting process 'command 'C:\Program Files (x86)\Java\jre1.8.0_491\bin\java.exe''. Working directory: C:\Users\Nirsland\.gradle\.tmp\tmp-jvm694259912600130459probe Command: C:\Program Files (x86)\Java\jre1.8.0_491\bin\java.exe -cp . JavaProbe
+Successfully started process 'command 'C:\Program Files (x86)\Java\jre1.8.0_491\bin\java.exe''
+Received JVM installation metadata from 'C:\Program Files (x86)\Java\jre1.8.0_491': {JAVA_HOME=C:\Program Files (x86)\Java\jre1.8.0_491, JAVA_VERSION=1.8.0_491, JAVA_VENDOR=Oracle Corporation, RUNTIME_NAME=Java(TM) SE Runtime Environment, RUNTIME_VERSION=1.8.0_491-b10, VM_NAME=Java HotSpot(TM) Client VM, VM_VERSION=25.491-b10, VM_VENDOR=Oracle Corporation, OS_ARCH=x86}
+Starting process 'command 'C:\Users\Nirsland\.gradle\jdks\temurin-8-amd64-windows\jdk8u482-b08\bin\java.exe''. Working directory: C:\Users\Nirsland\.gradle\.tmp\tmp-jvm14104122730165042345probe Command: C:\Users\Nirsland\.gradle\jdks\temurin-8-amd64-windows\jdk8u482-b08\bin\java.exe -cp . JavaProbe
+Successfully started process 'command 'C:\Users\Nirsland\.gradle\jdks\temurin-8-amd64-windows\jdk8u482-b08\bin\java.exe''
+Received JVM installation metadata from 'C:\Users\Nirsland\.gradle\jdks\temurin-8-amd64-windows\jdk8u482-b08': {JAVA_HOME=C:\Users\Nirsland\.gradle\jdks\temurin-8-amd64-windows\jdk8u482-b08\jre, JAVA_VERSION=1.8.0_482, JAVA_VENDOR=Temurin, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=1.8.0_482-b08, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=25.482-b08, VM_VENDOR=Temurin, OS_ARCH=amd64}
+Starting process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe''. Working directory: C:\Users\Nirsland\.gradle\.tmp\tmp-jvm1399131498638493653probe Command: C:\Program Files\Java\jdk-21\bin\java.exe -cp . JavaProbe
+Successfully started process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe''
+Received JVM installation metadata from 'C:\Program Files\Java\jdk-21': {JAVA_HOME=C:\Program Files\Java\jdk-21, JAVA_VERSION=21.0.9, JAVA_VENDOR=Oracle Corporation, RUNTIME_NAME=Java(TM) SE Runtime Environment, RUNTIME_VERSION=21.0.9+7-LTS-338, VM_NAME=Java HotSpot(TM) 64-Bit Server VM, VM_VERSION=21.0.9+7-LTS-338, VM_VENDOR=Oracle Corporation, OS_ARCH=amd64}
+Starting process 'command 'C:\Users\Nirsland\.gradle\jdks\jdk-16.0.2+7\bin\java.exe''. Working directory: C:\Users\Nirsland\.gradle\.tmp\tmp-jvm3773894530689662254probe Command: C:\Users\Nirsland\.gradle\jdks\jdk-16.0.2+7\bin\java.exe -cp . JavaProbe
+Successfully started process 'command 'C:\Users\Nirsland\.gradle\jdks\jdk-16.0.2+7\bin\java.exe''
+Received JVM installation metadata from 'C:\Users\Nirsland\.gradle\jdks\jdk-16.0.2+7': {JAVA_HOME=C:\Users\Nirsland\.gradle\jdks\jdk-16.0.2+7, JAVA_VERSION=16.0.2, JAVA_VENDOR=Eclipse Foundation, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=16.0.2+7, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=16.0.2+7, VM_VENDOR=Eclipse Foundation, OS_ARCH=amd64}
+Starting process 'command 'C:\Program Files\Java\jdk-25.0.2\bin\java.exe''. Working directory: C:\Users\Nirsland\.gradle\.tmp\tmp-jvm12119139044618266792probe Command: C:\Program Files\Java\jdk-25.0.2\bin\java.exe -cp . JavaProbe
+Successfully started process 'command 'C:\Program Files\Java\jdk-25.0.2\bin\java.exe''
+Received JVM installation metadata from 'C:\Program Files\Java\jdk-25.0.2': {JAVA_HOME=C:\Program Files\Java\jdk-25.0.2, JAVA_VERSION=25.0.2, JAVA_VENDOR=Oracle Corporation, RUNTIME_NAME=Java(TM) SE Runtime Environment, RUNTIME_VERSION=25.0.2+10-LTS-69, VM_NAME=Java HotSpot(TM) 64-Bit Server VM, VM_VERSION=25.0.2+10-LTS-69, VM_VENDOR=Oracle Corporation, OS_ARCH=amd64}
+Tasks to be executed: [task ':Common:compileJava', task ':Common:processResources', task ':Common:classes', task ':Common:jar', task ':Forge:downloadMcpConfig', task ':Forge:extractSrg', task ':Forge:createMcpToSrg', task ':Forge:compileJava']
+Tasks that were excluded: []
+Resolve mutations for :Common:compileJava (Thread[Execution worker Thread 6,5,main]) started.
+:Common:compileJava (Thread[Execution worker Thread 6,5,main]) started.
+
+> Task :Common:compileJava SKIPPED
+Skipping task ':Common:compileJava' as task onlyIf 'Task is enabled' is false.
+Resolve mutations for :Common:processResources (Thread[Execution worker Thread 6,5,main]) started.
+:Common:processResources (Thread[Execution worker Thread 6,5,main]) started.
+
+> Task :Common:processResources
+Watching 1 directory hierarchies to track changes
+Caching disabled for task ':Common:processResources' because:
+  Build cache is disabled
+Task ':Common:processResources' is not up-to-date because:
+  Executed with '--rerun-tasks'.
+Resolve mutations for :Common:classes (Thread[Execution worker Thread 6,5,main]) started.
+:Common:classes (Thread[Execution worker Thread 6,5,main]) started.
+
+> Task :Common:classes
+Skipping task ':Common:classes' as it has no actions.
+Resolve mutations for :Common:jar (Thread[Execution worker Thread 6,5,main]) started.
+:Common:jar (Thread[Execution worker Thread 6,5,main]) started.
+
+> Task :Common:jar SKIPPED
+Skipping task ':Common:jar' as task onlyIf 'Task is enabled' is false.
+work action resolve MoreCreativeTabsReborn-common-1.19.2.jar (project :Common) (Thread[Execution worker Thread 2,5,main]) started.
+Resolve mutations for :Forge:downloadMcpConfig (Thread[Execution worker Thread 2,5,main]) started.
+:Forge:downloadMcpConfig (Thread[Execution worker Thread 2,5,main]) started.
+
+> Task :Forge:downloadMcpConfig
+Caching disabled for task ':Forge:downloadMcpConfig' because:
+  Build cache is disabled
+Task ':Forge:downloadMcpConfig' is not up-to-date because:
+  Executed with '--rerun-tasks'.
+Downloading de.oceanlabs.mcp:mcp_config:1.19.2-20220805.130853@zip
+Resolve mutations for :Forge:extractSrg (Thread[Execution worker Thread 2,5,main]) started.
+:Forge:extractSrg (Thread[Execution worker Thread 2,5,main]) started.
+
+> Task :Forge:extractSrg
+Caching disabled for task ':Forge:extractSrg' because:
+  Build cache is disabled
+Task ':Forge:extractSrg' is not up-to-date because:
+  Executed with '--rerun-tasks'.
+Downloading net.minecraft:client:1.19.2:mappings@txt
+Resolve mutations for :Forge:createMcpToSrg (Thread[Execution worker Thread 2,5,main]) started.
+:Forge:createMcpToSrg (Thread[Execution worker Thread 6,5,main]) started.
+
+> Task :Forge:createMcpToSrg
+Caching disabled for task ':Forge:createMcpToSrg' because:
+  Build cache is disabled
+Task ':Forge:createMcpToSrg' is not up-to-date because:
+  Executed with '--rerun-tasks'.
+Downloading net.minecraft:mappings_official:1.19.2@zip
+Resolve mutations for :Forge:compileJava (Thread[Execution worker Thread 6,5,main]) started.
+:Forge:compileJava (Thread[Execution worker Thread 6,5,main]) started.
+
+> Task :Forge:compileJava
+Caching disabled for task ':Forge:compileJava' because:
+  Build cache is disabled
+Task ':Forge:compileJava' is not up-to-date because:
+  Executed with '--rerun-tasks'.
+The input changes require a full rebuild for incremental task ':Forge:compileJava'.
+Full recompilation is required because no incremental change information is available. This is usually caused by clean builds or changing compiler arguments.
+Compiling with toolchain 'C:\Program Files\Java\jdk-17'.
+Compiling with JDK Java compiler API.
+Note: SpongePowered MIXIN Annotation Processor Version=0.8.5 (MixinGradle Version=0.7)
+Note: Supported obfuscation types: ObfuscationServiceMCP supports [notch] ObfuscationServiceFG3 supports [searge]
+Note: Loading searge mappings from C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\createMcpToSrg\output.tsrg
+Note: Writing refmap to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing refmap to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing searge composite mappings to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\tmp\compileJava\compileJava-mappings.tsrg
+Note: Writing refmap to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing refmap to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing searge composite mappings to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\tmp\compileJava\compileJava-mappings.tsrg
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:31: warning: [removal] tab_icon in CustomCreativeTab has been deprecated and marked for removal
+        } else if (json.tab_icon != null) {
+                       ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:33: warning: [removal] tab_icon in CustomCreativeTab has been deprecated and marked for removal
+            tabIcon.name = json.tab_icon;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:85: warning: [removal] tab_icon in CustomCreativeTab has been deprecated and marked for removal
+                            && (json.tab_icon == null || json.tab_icon.isBlank()))
+                                    ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:85: warning: [removal] tab_icon in CustomCreativeTab has been deprecated and marked for removal
+                            && (json.tab_icon == null || json.tab_icon.isBlank()))
+                                                             ^
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 warnings
+Class dependency analysis for incremental compilation took 0.155 secs.
+Created classpath snapshot for incremental compilation in 3.093 secs.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.6.4/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 33s
+5 actionable tasks: 5 executed
+Watched directory hierarchies: [C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2]

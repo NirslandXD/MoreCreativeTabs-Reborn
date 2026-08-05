@@ -1,0 +1,38 @@
+{
+    "schemaVersion": 1,
+    "id": "morecreativetabsreborn",
+    "version": "${version}",
+
+    "name": "MoreCreativeTabs: Reborn",
+    "description": "${mod_description}",
+    "authors": [
+      "${mod_author}"
+    ],
+    "contributors": [
+      "HypherionSA",
+      "Upstream MoreCreativeTabs contributors"
+    ],
+    "contact": {
+      "sources": "https://github.com/hypherionmc/MoreCreativeTabs/"
+    },
+
+    "license": "MIT",
+    "icon": "assets/morecreativetabs/logo.png",
+    "environment": "client",
+    "entrypoints": {
+      "client": [
+        "me.hypherionmc.morecreativetabs.client.MoreCreativeTabsClient"
+      ]
+    },
+    "mixins": [
+      "morecreativetabs.mixins.json",
+      "morecreativetabs-fabric.mixins.json"
+    ],
+    "accessWidener": "morecreativetabs.accesswidener",
+    "depends": {
+      "fabricloader": ">=0.14",
+      "fabric": "*",
+      "minecraft": "1.19.2",
+      "java": ">=17"
+    }
+  }

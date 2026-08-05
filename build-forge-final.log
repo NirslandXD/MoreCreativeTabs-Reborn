@@ -1,0 +1,454 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.6.4/userguide/gradle_daemon.html#sec:disabling_the_daemon.
+Daemon will be stopped at the end of the build 
+
+> Configure project :Forge
+MixinGradle did not locate the diffplug APT plugin, skipping eclipse task configuration
+WARNING: This project is configured to use the official obfuscation mappings provided by Mojang. These mapping fall under their associated license, you should be fully aware of this license. For the latest license text, refer below, or the reference copy here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md, You can hide this warning by running the `hideOfficialWarningUntilChanged` task
+WARNING: (c) 2020 Microsoft Corporation. These mappings are provided "as-is" and you bear the risk of using them. You may copy and use the mappings for development purposes, but you may not redistribute the mappings complete and unmodified. Microsoft makes no warranties, express or implied, with respect to the mappings provided here.  Use and modification of this document or the source code (in any form) of Minecraft: Java Edition is governed by the Minecraft End User License Agreement available at https://account.mojang.com/documents/minecraft_eula.
+[23:21:20] [main/INFO]: Writing debug log file accesstransform.log
+[23:21:20] [main/INFO]: Access Transformer processor running version 8.0.7+8.0.7+master.43473d43
+[23:21:20] [main/INFO]: Command line arguments [--inJar, C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\fg_cache\net\minecraftforge\forge\1.19.2-43.2.0\forge-1.19.2-43.2.0-injected.jar, --outJar, C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\fg_cache\net\minecraftforge\forge\1.19.2-43.2.0_mapped_official_1.19.2\forge-1.19.2-43.2.0_mapped_official_1.19.2.jar, --logFile, accesstransform.log, --atFile, C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\resources\META-INF\accesstransformer.cfg, --atFile, C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\_atJar_4\parent_at.cfg]
+[23:21:20] [main/INFO]: Reading from C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\fg_cache\net\minecraftforge\forge\1.19.2-43.2.0\forge-1.19.2-43.2.0-injected.jar
+[23:21:20] [main/INFO]: Writing to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\fg_cache\net\minecraftforge\forge\1.19.2-43.2.0_mapped_official_1.19.2\forge-1.19.2-43.2.0_mapped_official_1.19.2.jar
+[23:21:20] [main/INFO]: Transformer file C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\resources\META-INF\accesstransformer.cfg
+[23:21:20] [main/INFO]: Transformer file C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\_atJar_4\parent_at.cfg
+[23:21:20] [main/WARN]: Found existing output jar C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\fg_cache\net\minecraftforge\forge\1.19.2-43.2.0_mapped_official_1.19.2\forge-1.19.2-43.2.0_mapped_official_1.19.2.jar, overwriting
+[23:21:27] [main/INFO]: JAR transformation complete C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\fg_cache\net\minecraftforge\forge\1.19.2-43.2.0_mapped_official_1.19.2\forge-1.19.2-43.2.0_mapped_official_1.19.2.jar
+Creating SRG -> MCP TSRG
+
+> Task :Forge:clean
+> Task :Common:compileJava SKIPPED
+> Task :Common:processResources UP-TO-DATE
+> Task :Common:classes UP-TO-DATE
+> Task :Common:jar SKIPPED
+> Task :Forge:downloadMcpConfig
+> Task :Forge:extractSrg
+> Task :Forge:createMcpToSrg
+
+> Task :Forge:compileJava
+Note: SpongePowered MIXIN Annotation Processor Version=0.8.5 (MixinGradle Version=0.7)
+Note: Supported obfuscation types: ObfuscationServiceMCP supports [notch] ObfuscationServiceFG3 supports [searge]
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:27: error: Mixin has no targets
+@Mixin(CreativeModeInventoryScreen.class)
+^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\mixin\CreativeInventoryScreenAccessor.java:7: error: Mixin has no targets
+@Mixin(CreativeModeInventoryScreen.class)
+^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\mixin\CreativeInventorySearchMixin.java:28: error: Mixin has no targets
+@Mixin(CreativeModeInventoryScreen.class)
+^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\mixin\CreativeModeTabAccessor.java:11: error: Mixin has no targets
+@Mixin(CreativeModeTab.class)
+^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\mixin\CreativeModeTabMixin.java:19: error: Mixin has no targets
+@Mixin(CreativeModeTab.class)
+^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\mixin\ItemMixin.java:18: error: Mixin has no targets
+@Mixin(Item.class)
+^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\mixin\ItemStackMixin.java:20: error: Mixin has no targets
+@Mixin(ItemStack.class)
+^
+Note: Writing refmap to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing refmap to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing searge composite mappings to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\tmp\compileJava\compileJava-mappings.tsrg
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\client\commands\MoreCreativeTabsCommand.java:7: error: package net.minecraft.client does not exist
+import net.minecraft.client.Minecraft;
+                           ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\client\commands\MoreCreativeTabsCommand.java:8: error: package net.minecraft.commands does not exist
+import net.minecraft.commands.Commands;
+                             ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\client\commands\MoreCreativeTabsCommand.java:9: error: package net.minecraft.network.chat does not exist
+import net.minecraft.network.chat.Component;
+                                 ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\client\commands\MoreCreativeTabsCommand.java:11: error: package net.minecraftforge.client.event does not exist
+import net.minecraftforge.client.event.RegisterClientCommandsEvent;
+                                      ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\client\commands\MoreCreativeTabsCommand.java:19: error: cannot find symbol
+    public static void onRegisterClientCommands(RegisterClientCommandsEvent event) {
+                                                ^
+  symbol:   class RegisterClientCommandsEvent
+  location: class MoreCreativeTabsCommand
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\client\ForgePlatformHelper.java:6: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.CreativeModeTab;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\platform\services\IPlatformHelper.java:3: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.CreativeModeTab;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\client\ForgePlatformHelper.java:15: error: cannot find symbol
+    public void setNewTabs(CreativeModeTab[] tabs) {
+                           ^
+  symbol:   class CreativeModeTab
+  location: class ForgePlatformHelper
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\platform\services\IPlatformHelper.java:15: error: cannot find symbol
+    public void setNewTabs(CreativeModeTab[] tabs);
+                           ^
+  symbol:   class CreativeModeTab
+  location: interface IPlatformHelper
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\client\ForgeResourceReloader.java:4: error: package net.minecraft.server.packs.resources does not exist
+import net.minecraft.server.packs.resources.ResourceManager;
+                                           ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\client\ForgeResourceReloader.java:5: error: package net.minecraft.server.packs.resources does not exist
+import net.minecraft.server.packs.resources.ResourceManagerReloadListener;
+                                           ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\client\ForgeResourceReloader.java:7: error: cannot find symbol
+public class ForgeResourceReloader implements ResourceManagerReloadListener {
+                                              ^
+  symbol: class ResourceManagerReloadListener
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\client\ForgeResourceReloader.java:10: error: cannot find symbol
+    public void onResourceManagerReload(ResourceManager p_10758_) {
+                                        ^
+  symbol:   class ResourceManager
+  location: class ForgeResourceReloader
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:3: error: package com.mojang.blaze3d.systems does not exist
+import com.mojang.blaze3d.systems.RenderSystem;
+                                 ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:4: error: package com.mojang.blaze3d.vertex does not exist
+import com.mojang.blaze3d.vertex.PoseStack;
+                                ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:6: error: package net.minecraft.client.gui.components does not exist
+import net.minecraft.client.gui.components.EditBox;
+                                          ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:7: error: package net.minecraft.client.gui.screens.inventory does not exist
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+                                                 ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:8: error: package net.minecraft.client.gui.screens.inventory does not exist
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
+                                                 ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:9: error: package net.minecraft.network.chat does not exist
+import net.minecraft.network.chat.Component;
+                                 ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:10: error: package net.minecraft.resources does not exist
+import net.minecraft.resources.ResourceLocation;
+                              ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:11: error: package net.minecraft.world.entity.player does not exist
+import net.minecraft.world.entity.player.Inventory;
+                                        ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:12: error: package net.minecraft.world.inventory does not exist
+import net.minecraft.world.inventory.AbstractContainerMenu;
+                                    ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:13: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.CreativeModeTab;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:14: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.ItemStack;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:29: error: cannot find symbol
+public abstract class ForgeCreativeInventoryScreenMixin extends AbstractContainerScreen {
+                                                                ^
+  symbol: class AbstractContainerScreen
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:35: error: cannot find symbol
+    @Shadow private EditBox searchBox;
+                    ^
+  symbol:   class EditBox
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:39: error: cannot find symbol
+    public ForgeCreativeInventoryScreenMixin(AbstractContainerMenu p_97741_, Inventory p_97742_, Component p_97743_) {
+                                             ^
+  symbol:   class AbstractContainerMenu
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:39: error: cannot find symbol
+    public ForgeCreativeInventoryScreenMixin(AbstractContainerMenu p_97741_, Inventory p_97742_, Component p_97743_) {
+                                                                             ^
+  symbol:   class Inventory
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:39: error: cannot find symbol
+    public ForgeCreativeInventoryScreenMixin(AbstractContainerMenu p_97741_, Inventory p_97742_, Component p_97743_) {
+                                                                                                 ^
+  symbol:   class Component
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:62: error: cannot find symbol
+    private void updateSearchBoxAfterSelection(CreativeModeTab tab, CallbackInfo ci) {
+                                               ^
+  symbol:   class CreativeModeTab
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:67: error: cannot find symbol
+    private boolean useConfiguredSearchBar(CreativeModeTab tab) {
+                                           ^
+  symbol:   class CreativeModeTab
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:74: error: cannot find symbol
+    private ResourceLocation useConfiguredBackground(CreativeModeTab tab) {
+                                                     ^
+  symbol:   class CreativeModeTab
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:74: error: cannot find symbol
+    private ResourceLocation useConfiguredBackground(CreativeModeTab tab) {
+            ^
+  symbol:   class ResourceLocation
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:81: error: cannot find symbol
+    private void updateSearchBox(CreativeModeTab tab) {
+                                 ^
+  symbol:   class CreativeModeTab
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:104: error: cannot find symbol
+    private CreativeModeTab activeTab() {
+            ^
+  symbol:   class CreativeModeTab
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:112: error: cannot find symbol
+    private void injectRenderTabButton(PoseStack p_98582_, CreativeModeTab p_98583_, CallbackInfo ci) {
+                                       ^
+  symbol:   class PoseStack
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:112: error: cannot find symbol
+    private void injectRenderTabButton(PoseStack p_98582_, CreativeModeTab p_98583_, CallbackInfo ci) {
+                                                           ^
+  symbol:   class CreativeModeTab
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:156: error: cannot find symbol
+    private void injectCheckTabClicked(CreativeModeTab p_98563_, double p_98564_, double p_98565_, CallbackInfoReturnable<Boolean> cir) {
+                                       ^
+  symbol:   class CreativeModeTab
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:184: error: cannot find symbol
+    private void injectCheckTabHovering(PoseStack p_98585_, CreativeModeTab p_98586_, int p_98587_, int p_98588_, CallbackInfoReturnable<Boolean> cir) {
+                                        ^
+  symbol:   class PoseStack
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:184: error: cannot find symbol
+    private void injectCheckTabHovering(PoseStack p_98585_, CreativeModeTab p_98586_, int p_98587_, int p_98588_, CallbackInfoReturnable<Boolean> cir) {
+                                                            ^
+  symbol:   class CreativeModeTab
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:214: error: cannot find symbol
+    private boolean isAlignedRight(CreativeModeTab tab) {
+                                   ^
+  symbol:   class CreativeModeTab
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:224: error: cannot find symbol
+    public int getColumn(CreativeModeTab tab) {
+                         ^
+  symbol:   class CreativeModeTab
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:237: error: cannot find symbol
+    public boolean isTopRow(CreativeModeTab tab) {
+                            ^
+  symbol:   class CreativeModeTab
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\mixin\ForgeCreativeInventoryScreenMixin.java:250: error: cannot find symbol
+    private boolean isTabVisible(CreativeModeTab tab) {
+                                 ^
+  symbol:   class CreativeModeTab
+  location: class ForgeCreativeInventoryScreenMixin
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\MoreCreativeTabs.java:7: error: package net.minecraft.client does not exist
+import net.minecraft.client.Minecraft;
+                           ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\MoreCreativeTabs.java:8: error: package net.minecraft.resources does not exist
+import net.minecraft.resources.ResourceLocation;
+                              ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\MoreCreativeTabs.java:9: error: package net.minecraft.server.packs.resources does not exist
+import net.minecraft.server.packs.resources.Resource;
+                                           ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\MoreCreativeTabs.java:10: error: package net.minecraft.server.packs.resources does not exist
+import net.minecraft.server.packs.resources.ResourceManager;
+                                           ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\MoreCreativeTabs.java:11: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.CreativeModeTab;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\MoreCreativeTabs.java:13: error: package net.minecraftforge.client.event does not exist
+import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
+                                      ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\MoreCreativeTabs.java:47: error: cannot find symbol
+    public static TabReloadResult reloadTabs(ResourceManager manager) {
+                                             ^
+  symbol:   class ResourceManager
+  location: class MoreCreativeTabs
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\src\main\java\me\hypherionmc\morecreativetabs\MoreCreativeTabs.java:69: error: cannot find symbol
+    public void registerReloadListener(RegisterClientReloadListenersEvent event) {
+                                       ^
+  symbol:   class RegisterClientReloadListenersEvent
+  location: class MoreCreativeTabs
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:16: error: package net.minecraft.client does not exist
+import net.minecraft.client.Minecraft;
+                           ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:17: error: package net.minecraft.client.gui.screens.inventory does not exist
+import net.minecraft.client.gui.screens.inventory.CreativeModeInventoryScreen;
+                                                 ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:18: error: package net.minecraft.core does not exist
+import net.minecraft.core.Registry;
+                         ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:19: error: package net.minecraft.nbt does not exist
+import net.minecraft.nbt.CompoundTag;
+                        ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:20: error: package net.minecraft.nbt does not exist
+import net.minecraft.nbt.TagParser;
+                        ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:21: error: package net.minecraft.network.chat does not exist
+import net.minecraft.network.chat.Component;
+                                 ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:22: error: package net.minecraft.resources does not exist
+import net.minecraft.resources.ResourceLocation;
+                              ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:23: error: package net.minecraft.server.packs.resources does not exist
+import net.minecraft.server.packs.resources.Resource;
+                                           ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:24: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.CreativeModeTab;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:25: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.Item;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:26: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.ItemStack;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:6: error: package net.minecraft.core does not exist
+import net.minecraft.core.NonNullList;
+                         ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:7: error: package net.minecraft.core does not exist
+import net.minecraft.core.Registry;
+                         ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:8: error: package net.minecraft.nbt does not exist
+import net.minecraft.nbt.CompoundTag;
+                        ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:9: error: package net.minecraft.nbt does not exist
+import net.minecraft.nbt.TagParser;
+                        ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:10: error: package net.minecraft.resources does not exist
+import net.minecraft.resources.ResourceLocation;
+                              ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:11: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.CreativeModeTab;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:12: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.Item;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\util\CreativeTabUtils.java:13: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.ItemStack;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:38: error: cannot find symbol
+    public static Set<Item> hidden_stacks = new HashSet<>();
+                      ^
+  symbol:   class Item
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:39: error: cannot find symbol
+    public static HashMap<Item, String> remapped_items = new HashMap<>();
+                          ^
+  symbol:   class Item
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:40: error: cannot find symbol
+    public static Set<CreativeModeTab> custom_tabs = new LinkedHashSet<>();
+                      ^
+  symbol:   class CreativeModeTab
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:44: error: cannot find symbol
+    public static CreativeModeTab[] tabs_before;
+                  ^
+  symbol:   class CreativeModeTab
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:45: error: cannot find symbol
+    public static HashMap<String, Pair<CustomCreativeTab, List<ItemStack>>> replaced_tabs = new HashMap<>();
+                                                               ^
+  symbol:   class ItemStack
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:48: error: cannot find symbol
+    public static List<CreativeModeTab> current_tabs = new ArrayList<>();
+                       ^
+  symbol:   class CreativeModeTab
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:49: error: cannot find symbol
+    private static CreativeModeTab selectedTabBeforeReload;
+                   ^
+  symbol:   class CreativeModeTab
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:63: error: cannot find symbol
+    public static void loadEntries(Map<ResourceLocation, Resource> entries, TabCreator creator) {
+                                       ^
+  symbol:   class ResourceLocation
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:63: error: cannot find symbol
+    public static void loadEntries(Map<ResourceLocation, Resource> entries, TabCreator creator) {
+                                                         ^
+  symbol:   class Resource
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\TabCreator.java:4: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.CreativeModeTab;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\TabCreator.java:5: error: package net.minecraft.world.item does not exist
+import net.minecraft.world.item.ItemStack;
+                               ^
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:117: error: cannot find symbol
+    private static ArrayList<ItemStack> parseTabItems(ResourceLocation location, CustomCreativeTab json) {
+                                                      ^
+  symbol:   class ResourceLocation
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:117: error: cannot find symbol
+    private static ArrayList<ItemStack> parseTabItems(ResourceLocation location, CustomCreativeTab json) {
+                             ^
+  symbol:   class ItemStack
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:172: error: cannot find symbol
+    private static void applyItemNbt(CustomCreativeTab.TabItem item, ItemStack stack) {
+                                                                     ^
+  symbol:   class ItemStack
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:185: error: cannot find symbol
+    private static void addExistingExceptions(ResourceLocation location, CustomCreativeTab json, CustomCreativeTab.TabItem item) {
+                                              ^
+  symbol:   class ResourceLocation
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:197: error: cannot find symbol
+    private static void addExistingException(ResourceLocation location, CustomCreativeTab json, JsonElement exception) {
+                                             ^
+  symbol:   class ResourceLocation
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:213: error: cannot find symbol
+    public static void loadDisabledTabs(Map<ResourceLocation, Resource> resourceMap) {
+                                            ^
+  symbol:   class ResourceLocation
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:213: error: cannot find symbol
+    public static void loadDisabledTabs(Map<ResourceLocation, Resource> resourceMap) {
+                                                              ^
+  symbol:   class Resource
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:225: error: cannot find symbol
+    public static boolean processPolicyEntry(ResourceLocation location, Resource resource) {
+                                             ^
+  symbol:   class ResourceLocation
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:225: error: cannot find symbol
+    public static boolean processPolicyEntry(ResourceLocation location, Resource resource) {
+                                                                        ^
+  symbol:   class Resource
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:253: error: cannot find symbol
+    private static void applyDisabledTabs(ResourceLocation location, DisabledTabsJsonHelper json) {
+                                          ^
+  symbol:   class ResourceLocation
+  location: class CustomCreativeTabManager
+C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Common\src\main\java\me\hypherionmc\morecreativetabs\client\tabs\CustomCreativeTabManager.java:279: error: cannot find symbol
+    public static void loadOrderedTabs(Map<ResourceLocation, Resource> resourceMap) {
+                                           ^
+  symbol:   class ResourceLocation
+  location: class CustomCreativeTabManager
+Note: Writing refmap to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing refmap to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\tmp\compileJava\compileJava-refmap.json
+Note: Writing searge composite mappings to C:\Users\Nirsland\Documents\MCT Reborn\MoreCreativeTabsReborn-1.19.2\Forge\build\tmp\compileJava\compileJava-mappings.tsrg
+100 errors
+only showing the first 100 errors, of 196 total; use -Xmaxerrs if you would like to see more
+
+> Task :Forge:compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':Forge:compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.6.4/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD FAILED in 1m 19s
+6 actionable tasks: 5 executed, 1 up-to-date
