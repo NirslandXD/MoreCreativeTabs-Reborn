@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.hypherionmc.morecreativetabs.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "refmap": "${refmap_target}refmap.json",
+  "client": [    "FabricCreativeInventoryScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

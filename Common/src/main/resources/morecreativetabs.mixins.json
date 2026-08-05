@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.hypherionmc.morecreativetabs.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "refmap": "${refmap_target}refmap.json",
+  "client": [
+    "CreativeModeTabAccessor",
+    "CreativeInventoryScreenAccessor",
+    "CreativeModeTabMixin",
+    "ItemMixin",
+    "ItemStackMixin",
+    "CreativeInventorySearchMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
